@@ -34,14 +34,16 @@ public class ListingService {
 
     public int saveListing(Listing listing){
         ++listings;
+        System.out.println("\n\n\n new id "+listing.getId()+" before save \n\n\n");
         return this.listingRepository.save(listing).getId();
     }
 
     public Listing updateListing( Listing listing) {
         Optional<Listing> existingListing = listingRepository.findById(listing.getId());
 
-        //TODO:CHECK
+
         if (existingListing.isPresent()) {
+            listing.setPhoto("/assets/house.jpg");
             return listingRepository.save(listing);
         } else {
             throw new RuntimeException("Listing not found  id:" + listing.getId());
@@ -49,6 +51,7 @@ public class ListingService {
     }
 
     public void deleteListing(int id){
+        --listings;
         Optional<Listing> listing=this.listingRepository.findById(id);
         if(listing.isPresent())
             this.listingRepository.deleteById(id);

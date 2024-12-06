@@ -5,36 +5,23 @@
     });
 
     
-
-
-    function getDetails(id){
-      console.log("get",id);
-    }
-
-    $.ajax({
-      url:'http://localhost:8080/getListingNumber',
-      method:'GET',
-      success:(res)=>{
-        console.log(res);
-        for(let i=1;i<=parseInt(res);i++){
-          $(`#edit-listing${i}`).on('click',()=>{
-            console.log("edit",i);
-            //getDetails(1);
-          });
-          $(`#delete-listing${i}`).on('click',()=>{
-            console.log("delete",i);
-            $.ajax({
-              url:`http://localhost:8080/listing/${i}`,
-              method:'DELETE',
-              success:()=>window.location.href='/home'
-            })
-          });
-          $(`#apply-button${i}`).on('click',()=>{
-            console.log("apply",i);
-          })
-
+    $('#city').on('input',(evt)=>{
+      const filter=evt.target.value.toLowerCase();
+      
+      $('.results a').each(function(){
+        console.log(this);
+        const city=$(this).data('city').toLowerCase();
+        if(city.includes(filter)){
+          $(this).show();
+        }else{
+          $(this).hide();
         }
-      }
-    })
+      });
+
+    });
+
+    
+
+    
 
   });

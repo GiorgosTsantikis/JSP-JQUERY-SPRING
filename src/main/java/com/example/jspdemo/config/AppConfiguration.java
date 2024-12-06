@@ -33,6 +33,9 @@ public class AppConfiguration {
             theListings.add(new Listing("idc","Poli","Thessaloniki", "/assets/house.jpg",true,true,7,90_000,2));
             theListings.add(new Listing("final house","Athens","state1", "/assets/house.jpg",true,true,8,70_000,5));
             theListings.forEach(this.listingService::saveListing);
+            var update=theListings.get(0);
+            update.setName("newnamebaby");
+            this.listingService.updateListing(update);
         };
 
     }

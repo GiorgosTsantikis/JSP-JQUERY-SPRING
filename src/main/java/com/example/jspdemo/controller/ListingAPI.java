@@ -1,10 +1,10 @@
 package com.example.jspdemo.controller;
 
+import com.example.jspdemo.model.Applicant;
 import com.example.jspdemo.service.ListingService;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import com.fasterxml.jackson.databind.JsonNode;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -25,5 +25,14 @@ public class ListingAPI {
     @DeleteMapping("/listing/{id}")
     public void deleteListing(@PathVariable int id){
         this.listingService.deleteListing(id);
+    }
+
+    @PostMapping("/application/{id}")
+    public Applicant acceptApplication(@RequestBody Applicant applicant, @PathVariable int id, Model model){
+        System.out.println(applicant);
+
+
+        return applicant;
+
     }
 }

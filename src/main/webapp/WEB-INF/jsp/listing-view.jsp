@@ -2,6 +2,7 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 
+<script src="/jquery/details.js"></script>
   <article class="details-article">
     <section class="details-description">
       <h2 class="details-heading">${listing.name}</h2>
@@ -34,7 +35,9 @@
       <div id="apply-form"></div>
     </section>
 
+
     <div id="apply-success"></div>
+
 
     <div id="edit-form"></div>
   </article>

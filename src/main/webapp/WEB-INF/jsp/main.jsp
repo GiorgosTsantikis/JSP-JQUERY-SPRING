@@ -3,7 +3,7 @@
 <html>
 
     <head>
-        <title>Home</title>
+        <title>${title}</title>
         <link href="/css/home.css" rel="stylesheet" type="text/css">
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <script src=/jquery/main.js></script>

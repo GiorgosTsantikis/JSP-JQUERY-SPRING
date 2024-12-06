@@ -12,7 +12,7 @@
 
 
     <c:forEach items="${listings}" var="listing">
-    <a href="/listing/${listing.id}" class="click-listing">
+    <a href="/listing/${listing.id}" data-city="${listing.city}" class="click-listing">
     <section class="listing-home">
     <img src="${listing.photo}" class="listing-home-photo"/>
     <h2 class="listing-home-heading">${listing.name}</h2>
